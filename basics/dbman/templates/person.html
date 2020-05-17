@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+  <form action="/person" method="post">
+    <p>
+      <label for="name">Name</label>
+      <input type="text" name="name" required/>
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input type="email" name="email" required/>
+    </p>
+    <p>
+      <input type="submit" value="Create">
+    </p>
+  </form>
+{% endblock content %}

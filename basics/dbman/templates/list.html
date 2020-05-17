@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  {% for person in persons %}
+    <tr>
+      <td>{{person.name}}</td>
+      <td>{{person.email}}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock content %}

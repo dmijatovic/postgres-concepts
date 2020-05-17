@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if title %}
+    <title>{{title}}</title>
+  {% else %}
+    <title>Default page title</title>
+  {% endif %}
+  <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+</head>
+<body>
+<header>
+  <nav>
+    {% for route in routes %}
+      {% if route.path==activeRoute %}
+        <a href="{{route.path}}" class="active">{{route.label}}</a>
+      {% else %}
+        <a href="{{route.path}}">{{route.label}}</a>
+      {% endif %}
+    {% endfor %}
+    <!-- <a href="/">Home</a>
+    <a href="/list">List of persons</a>
+    <a href="/person">Add new person</a> -->
+  </nav>
+  <h1>{{pageTitle}}</h1>
+</header>
+<main>
+<!-- display flash message from flask-->
+{% with messages = get_flashed_messages(with_categories=True)%}
+{% if messages %}
+  {% for category,message in messages %}
+    <div class="alert alert-{{category}}">{{message}}</div>
+  {% endfor %}
+{% endif %}
+{% endwith %}
+<!-- main content -->
+{% block content %}{% endblock %}
+</main>
+<footer>
+  This is page footer
+</footer>
+</body>
+</html>
