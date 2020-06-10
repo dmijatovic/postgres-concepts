@@ -104,6 +104,8 @@ CREATE DATABASE
 \l
 # list tables
 \d
+# list table in database
+\dt
 # quit from psql
 \q
 # exit from container
